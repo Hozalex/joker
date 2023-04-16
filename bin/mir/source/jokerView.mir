@@ -1,0 +1,214 @@
+[ @file = "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc"; @line = 1; ]
+import Toybox.Graphics;
+[ @file = "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc"; @line = 2; ]
+import Toybox.Lang;
+[ @file = "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc"; @line = 3; ]
+import Toybox.System;
+[ @file = "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc"; @line = 4; ]
+import Toybox.WatchUi;
+[ @file = "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc"; @line = 5; ]
+using Toybox.Time.Gregorian;
+[ @file = "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc"; @line = 7; ]
+class jokerView extends WatchUi.WatchFace{
+    [ @file = "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc"; @line = 7; ]
+    <init> {
+    }
+    [ @file = "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc"; @line = 7; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc"; @line = 9; @position = 8; ]
+    var customFont = null;
+    [ @file = "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc"; @line = 11; ]
+    function initialize() as Void {
+C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_11_26_start:
+[ "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc" 12 8 ]
+        %tmp.2 = getv ? :WatchFace;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_11_26_stop:
+    }
+    [ @file = "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc"; @line = 16; ]
+    function onLayout(dc as Dc) as Void {
+C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_16_40_start:
+[ "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc" 17 8 ]
+        %tmp.1 = self;
+        %tmp.2 = getv function %tmp.1 :setLayout;
+        %tmp.4 = getv ? :Rez;
+        %tmp.5 = getv %tmp.4 :Layouts;
+        %tmp.6 = getv function %tmp.5 :MainLayout;
+        %tmp.8 = lgetv %dc;
+        %tmp.9 = invoke %tmp.5 %tmp.6(%tmp.8);
+        invoke %tmp.1 %tmp.2(%tmp.9);
+C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_16_40_stop:
+    }
+    [ @file = "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc"; @line = 23; ]
+    function onShow() as Void {
+    }
+    [ @file = "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc"; @line = 28; ]
+    function onUpdate(dc as Dc) as Void {
+C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_28_40_start:
+[ "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc" 29 8 ]
+        %tmp.1 = self;
+        %tmp.2 = getv function %tmp.1 :time;
+        %tmp.4 = lgetv %dc;
+        invoke %tmp.1 %tmp.2(%tmp.4);
+[ "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc" 30 8 ]
+        %tmp.5 = self;
+        %tmp.6 = getv function %tmp.5 :date;
+        %tmp.8 = lgetv %dc;
+        invoke %tmp.5 %tmp.6(%tmp.8);
+[ "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc" 31 8 ]
+        %tmp.10 = getv ? :View;
+        %tmp.11 = getv function %tmp.10 :onUpdate;
+        %tmp.13 = lgetv %dc;
+        invoke %tmp.10 %tmp.11(%tmp.13);
+C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_28_40_stop:
+    }
+    [ @file = "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc"; @line = 37; ]
+    function onHide() as Void {
+    }
+    [ @file = "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc"; @line = 41; ]
+    function onExitSleep() as Void {
+    }
+    [ @file = "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc"; @line = 45; ]
+    function onEnterSleep() as Void {
+    }
+    [ @file = "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc"; @line = 48; ]
+    function date(dc as Dc) {
+C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_48_27_start:
+[ "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc" 49 8 ]
+        [ "C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_48_27_start" "C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_48_27_stop" ]
+        %today_date.1 = local;
+        %tmp.1 = getm $.Toybox.Time.Gregorian;
+        %tmp.2 = getv function %tmp.1 :info;
+        %tmp.4 = getv ? :Time;
+        %tmp.5 = getv function %tmp.4 :now;
+        %tmp.6 = invoke %tmp.4 %tmp.5();
+        %tmp.8 = getv ? :Time;
+        %tmp.9 = getv %tmp.8 :FORMAT_MEDIUM;
+        %tmp.10 = invoke %tmp.1 %tmp.2(%tmp.6, %tmp.9);
+        lputv %today_date.1 %tmp.10;
+[ "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc" 51 8 ]
+        [ "C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_48_27_start" "C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_48_27_stop" ]
+        %date_view.2 = local;
+        %tmp.12 = getv ? :View;
+        %tmp.13 = getv function %tmp.12 :findDrawableById;
+        %tmp.14 = "Date";
+        %tmp.15 = invoke %tmp.12 %tmp.13(%tmp.14);
+        %tmp.16 = as %tmp.15 Text;
+        lputv %date_view.2 %tmp.16;
+[ "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc" 52 8 ]
+        [ "C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_48_27_start" "C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_48_27_stop" ]
+        %date_day_view.3 = local;
+        %tmp.18 = getv ? :View;
+        %tmp.19 = getv function %tmp.18 :findDrawableById;
+        %tmp.20 = "DateDay";
+        %tmp.21 = invoke %tmp.18 %tmp.19(%tmp.20);
+        %tmp.22 = as %tmp.21 Text;
+        lputv %date_day_view.3 %tmp.22;
+[ "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc" 53 8 ]
+        [ "C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_48_27_start" "C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_48_27_stop" ]
+        %date_month_view.4 = local;
+        %tmp.24 = getv ? :View;
+        %tmp.25 = getv function %tmp.24 :findDrawableById;
+        %tmp.26 = "DateMonth";
+        %tmp.27 = invoke %tmp.24 %tmp.25(%tmp.26);
+        %tmp.28 = as %tmp.27 Text;
+        lputv %date_month_view.4 %tmp.28;
+[ "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc" 55 8 ]
+        %tmp.29 = lgetv %date_view.2;
+        %tmp.30 = getv function %tmp.29 :setText;
+        %tmp.31 = getm $.Toybox.Lang;
+        %tmp.32 = getv function %tmp.31 :format;
+        %tmp.33 = "$1$";
+        %tmp.34 = newa 1;
+        %tmp.35 = lgetv %today_date.1;
+        %tmp.36 = getv %tmp.35 :day;
+        %tmp.37 = getv function %tmp.36 :format;
+        %tmp.38 = "%02d";
+        %tmp.39 = invoke %tmp.36 %tmp.37(%tmp.38);
+        %tmp.40 = dup %tmp.34;
+        %tmp.41 = aputv %tmp.40 0 %tmp.39;
+        %tmp.42 = invoke %tmp.31 %tmp.32(%tmp.33, %tmp.41);
+        invoke %tmp.29 %tmp.30(%tmp.42);
+[ "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc" 56 8 ]
+        %tmp.43 = lgetv %date_month_view.4;
+        %tmp.44 = getv function %tmp.43 :setText;
+        %tmp.45 = lgetv %today_date.1;
+        %tmp.46 = getv %tmp.45 :month;
+        invoke %tmp.43 %tmp.44(%tmp.46);
+[ "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc" 57 8 ]
+        %tmp.47 = lgetv %date_day_view.3;
+        %tmp.48 = getv function %tmp.47 :setText;
+        %tmp.49 = lgetv %today_date.1;
+        %tmp.50 = getv %tmp.49 :day_of_week;
+        invoke %tmp.47 %tmp.48(%tmp.50);
+C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_48_27_stop:
+    }
+    [ @file = "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc"; @line = 60; ]
+    function time(dc as Dc) {
+C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_60_29_start:
+[ "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc" 61 8 ]
+        [ "C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_60_29_start" "C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_60_29_stop" ]
+        %clockTime.1 = local;
+        %tmp.1 = getm $.Toybox.System;
+        %tmp.2 = getv function %tmp.1 :getClockTime;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %clockTime.1 %tmp.3;
+[ "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc" 63 8 ]
+        [ "C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_60_29_start" "C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_60_29_stop" ]
+        %hour_view.2 = local;
+        %tmp.5 = getv ? :View;
+        %tmp.6 = getv function %tmp.5 :findDrawableById;
+        %tmp.7 = "TimeHour";
+        %tmp.8 = invoke %tmp.5 %tmp.6(%tmp.7);
+        %tmp.9 = as %tmp.8 Text;
+        lputv %hour_view.2 %tmp.9;
+[ "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc" 64 8 ]
+        [ "C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_60_29_start" "C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_60_29_stop" ]
+        %min_view.3 = local;
+        %tmp.11 = getv ? :View;
+        %tmp.12 = getv function %tmp.11 :findDrawableById;
+        %tmp.13 = "TimeMin";
+        %tmp.14 = invoke %tmp.11 %tmp.12(%tmp.13);
+        %tmp.15 = as %tmp.14 Text;
+        lputv %min_view.3 %tmp.15;
+[ "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc" 66 8 ]
+        %tmp.16 = lgetv %hour_view.2;
+        %tmp.17 = getv function %tmp.16 :setText;
+        %tmp.18 = getm $.Toybox.Lang;
+        %tmp.19 = getv function %tmp.18 :format;
+        %tmp.20 = "$1$";
+        %tmp.21 = newa 1;
+        %tmp.22 = lgetv %clockTime.1;
+        %tmp.23 = getv %tmp.22 :hour;
+        %tmp.24 = getv function %tmp.23 :format;
+        %tmp.25 = "%02d";
+        %tmp.26 = invoke %tmp.23 %tmp.24(%tmp.25);
+        %tmp.27 = dup %tmp.21;
+        %tmp.28 = aputv %tmp.27 0 %tmp.26;
+        %tmp.29 = invoke %tmp.18 %tmp.19(%tmp.20, %tmp.28);
+        invoke %tmp.16 %tmp.17(%tmp.29);
+[ "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc" 67 8 ]
+        %tmp.30 = lgetv %min_view.3;
+        %tmp.31 = getv function %tmp.30 :setText;
+        %tmp.32 = getm $.Toybox.Lang;
+        %tmp.33 = getv function %tmp.32 :format;
+        %tmp.34 = "$1$";
+        %tmp.35 = newa 1;
+        %tmp.36 = lgetv %clockTime.1;
+        %tmp.37 = getv %tmp.36 :min;
+        %tmp.38 = getv function %tmp.37 :format;
+        %tmp.39 = "%02d";
+        %tmp.40 = invoke %tmp.37 %tmp.38(%tmp.39);
+        %tmp.41 = dup %tmp.35;
+        %tmp.42 = aputv %tmp.41 0 %tmp.40;
+        %tmp.43 = invoke %tmp.32 %tmp.33(%tmp.34, %tmp.42);
+        invoke %tmp.30 %tmp.31(%tmp.43);
+C_Users_hozal_Documents_garmin_joker_source_jokerView_mc_60_29_stop:
+    }
+}
+[ @file = "C:\Users\hozal\Documents\garmin\joker\source\jokerView.mc"; @line = 1; ]
+<init> {
+}

@@ -1,0 +1,12 @@
+<resources>
+    <layout id="MainLayout">
+        <drawable id="MainBackground" />
+            <!-- TIME -->
+            <label id="TimeHour" x="45" y="28" font="@Fonts.ledFont50" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_WHITE" />
+            <label id="TimeMin" x="147" y="16" font="@Fonts.ledFont50" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_BLACK"/>
+            <!-- DATE -->
+            <label id="Date" x="146" y="71" font="@Fonts.customTextFont20Bold" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_BLACK" />
+            <label id="DateMonth" x="144" y="40" font="@Fonts.customTextFont20Bold" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_BLACK" />
+            <label id="DateDay" x="86" y="151" font="@Fonts.customTextFont20Bold" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_BLACK" /> 
+    </layout>
+</resources>
