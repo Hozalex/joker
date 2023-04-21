@@ -56,13 +56,15 @@ module Rez {
 
             var rez_cmp_local_text_TimeMin = new WatchUi.Text({:identifier=>"TimeMin", :color=>Gfx.COLOR_BLACK, :locX=>147, :locY=>16, :justification=>Graphics.TEXT_JUSTIFY_CENTER, :font=>local_Rez_Fonts_ledFont50});
 
-            var rez_cmp_local_text_Date = new WatchUi.Text({:identifier=>"Date", :color=>Gfx.COLOR_BLACK, :locX=>146, :locY=>71, :justification=>Graphics.TEXT_JUSTIFY_CENTER, :font=>local_Rez_Fonts_customTextFont20Bold});
+            var rez_cmp_local_text_Date = new WatchUi.Text({:identifier=>"Date", :color=>Gfx.COLOR_BLACK, :locX=>59, :locY=>75, :justification=>Graphics.TEXT_JUSTIFY_CENTER, :font=>local_Rez_Fonts_customTextFont20Bold});
 
-            var rez_cmp_local_text_DateMonth = new WatchUi.Text({:identifier=>"DateMonth", :color=>Gfx.COLOR_BLACK, :locX=>144, :locY=>40, :justification=>Graphics.TEXT_JUSTIFY_CENTER, :font=>local_Rez_Fonts_customTextFont20Bold});
+            var rez_cmp_local_text_DateMonth = new WatchUi.Text({:identifier=>"DateMonth", :color=>Gfx.COLOR_BLACK, :locX=>42, :locY=>53, :justification=>Graphics.TEXT_JUSTIFY_CENTER, :font=>local_Rez_Fonts_customTextFont20Bold});
 
-            var rez_cmp_local_text_DateDay = new WatchUi.Text({:identifier=>"DateDay", :color=>Gfx.COLOR_BLACK, :locX=>86, :locY=>151, :justification=>Graphics.TEXT_JUSTIFY_CENTER, :font=>local_Rez_Fonts_customTextFont20Bold});
+            var rez_cmp_local_text_DateDay = new WatchUi.Text({:identifier=>"DateDay", :color=>Gfx.COLOR_BLACK, :locX=>88, :locY=>149, :justification=>Graphics.TEXT_JUSTIFY_CENTER, :font=>local_Rez_Fonts_customTextFont20Bold});
 
-            return [rez_cmp_local_custom_drawable_MainBackground, rez_cmp_local_text_TimeHour, rez_cmp_local_text_TimeMin, rez_cmp_local_text_Date, rez_cmp_local_text_DateMonth, rez_cmp_local_text_DateDay] as Array<WatchUi.Drawable>;
+            var rez_cmp_local_text_HRD = new WatchUi.Text({:identifier=>"HRD", :color=>Gfx.COLOR_BLACK, :locX=>145, :locY=>42, :justification=>Graphics.TEXT_JUSTIFY_CENTER, :font=>local_Rez_Fonts_customTextFont20Bold});
+
+            return [rez_cmp_local_custom_drawable_MainBackground, rez_cmp_local_text_TimeHour, rez_cmp_local_text_TimeMin, rez_cmp_local_text_Date, rez_cmp_local_text_DateMonth, rez_cmp_local_text_DateDay, rez_cmp_local_text_HRD] as Array<WatchUi.Drawable>;
         }
     } // Layouts
 

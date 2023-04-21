@@ -5,8 +5,12 @@
             <label id="TimeHour" x="45" y="28" font="@Fonts.ledFont50" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_WHITE" />
             <label id="TimeMin" x="147" y="16" font="@Fonts.ledFont50" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_BLACK"/>
             <!-- DATE -->
-            <label id="Date" x="146" y="71" font="@Fonts.customTextFont20Bold" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_BLACK" />
-            <label id="DateMonth" x="144" y="40" font="@Fonts.customTextFont20Bold" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_BLACK" />
-            <label id="DateDay" x="86" y="151" font="@Fonts.customTextFont20Bold" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_BLACK" /> 
+            <label id="Date" x="59" y="75" font="@Fonts.customTextFont20Bold" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_BLACK" />
+            <label id="DateMonth" x="42" y="53" font="@Fonts.customTextFont20Bold" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_BLACK" />
+            <label id="DateDay" x="88" y="149" font="@Fonts.customTextFont20Bold" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_BLACK" />
+                <!-- before day -->
+            <!-- <label id="before" x="86" y="152" font="@Fonts.customTextFont20Bold" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_BLACK" /> -->
+            <!-- SENSORS -->
+            <label id="HRD" x="145" y="42" font="@Fonts.customTextFont20Bold" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_BLACK" />
     </layout>
 </resources>

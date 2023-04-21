@@ -2,6 +2,7 @@ import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
+import Toybox.Activity;
 using Toybox.Time.Gregorian;
 
 class jokerView extends WatchUi.WatchFace {
@@ -28,6 +29,7 @@ class jokerView extends WatchUi.WatchFace {
     function onUpdate(dc as Dc) as Void {
         time(dc);
         date(dc);
+        // sensor(dc);
         View.onUpdate(dc);
     }
 
@@ -45,6 +47,17 @@ class jokerView extends WatchUi.WatchFace {
     function onEnterSleep() as Void {
     }
 
+    // function sensor(dc as Dc) as Void {
+    //     var activity = Activity.getActivityInfo();
+    //     var hrd = activity.currentHeartRate();
+    //     var hr_view = View.findDrawableById("HRD") as Text;
+    //     if (hrd != null) {
+    //         hr_view.setText(hrd);
+    //     } else {
+    //         hr_view.setText("0");
+    //     }
+    // }
+
     function date(dc as Dc){
         var today_date = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
 
@@ -54,7 +67,31 @@ class jokerView extends WatchUi.WatchFace {
 
         date_view.setText(Lang.format("$1$", [today_date.day.format("%02d")]));
         date_month_view.setText(today_date.month);
-        date_day_view.setText(today_date.day_of_week);
+        
+
+        switch (today_date.day_of_week){
+            case "Mon":
+                date_day_view.setText("sun  " + today_date.day_of_week + "  tue");
+                break;
+            case "tue":
+                date_day_view.setText("mon  " + today_date.day_of_week + "  wed");
+                break;
+            case "wed":
+                date_day_view.setText("tue  " + today_date.day_of_week + "  thu");
+                break;
+            case "thu":
+                date_day_view.setText("wed  " + today_date.day_of_week + "  fri");
+                break;
+            case "Fri":
+                date_day_view.setText("thu  " + today_date.day_of_week + "  sat");
+                break;
+            case "sat":
+                date_day_view.setText("fri  " + today_date.day_of_week + "  sun");
+                break;
+            case "sun":
+                date_day_view.setText("sat  " + today_date.day_of_week + "  mon");
+                break;
+        }
     }
 
     function time (dc as Dc) {
