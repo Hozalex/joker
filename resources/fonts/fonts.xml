@@ -1,5 +1,5 @@
 <fonts>
-    <font id="ledFont50" filename="led_40.fnt"/>
-    <font id="ledFont13" filename="led_13.fnt"/>
     <font id="customTextFont20Bold" filename="custom_text_dcB20.fnt"/>
+    <font id="customTextFont14" filename="custom_text_dc14.fnt"/>
+    <font id="dc_digital42B_num" filename="dc_digital42B_num.fnt"/>
 </fonts>

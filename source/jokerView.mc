@@ -2,14 +2,17 @@ import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
-import Toybox.Activity;
+import Toybox.ActivityMonitor;
 using Toybox.Time.Gregorian;
 
 class jokerView extends WatchUi.WatchFace {
 
-    var customFont = null;
+    hidden var bpm;
+    hidden var battery;
+    hidden var batteryField;
 
     function initialize() {
+        // DataField.initialize();
         WatchFace.initialize();
     }
 
@@ -27,10 +30,13 @@ class jokerView extends WatchUi.WatchFace {
 
     // Update the view
     function onUpdate(dc as Dc) as Void {
+
         time(dc);
         date(dc);
+        
         // sensor(dc);
         View.onUpdate(dc);
+        batteryBar(dc);
     }
 
     // Called when this View is removed from the screen. Save the
@@ -47,12 +53,21 @@ class jokerView extends WatchUi.WatchFace {
     function onEnterSleep() as Void {
     }
 
+    // function compute(info){
+    //     if (info has :currentHeartRate) {
+    //         if (info.currentHeartRate != null) {
+    //             bpm = info.currentHeartRate;
+    //         } else {
+    //             bpm = 0.0f;
+    //         }
+    //     }
+    // }
+
     // function sensor(dc as Dc) as Void {
-    //     var activity = Activity.getActivityInfo();
-    //     var hrd = activity.currentHeartRate();
     //     var hr_view = View.findDrawableById("HRD") as Text;
-    //     if (hrd != null) {
-    //         hr_view.setText(hrd);
+    //     bpm = Activity.getActivityInfo().currentHeartRate;
+    //     if (bpm != null) {
+    //         hr_view.setText(bpm);
     //     } else {
     //         hr_view.setText("0");
     //     }
@@ -73,22 +88,22 @@ class jokerView extends WatchUi.WatchFace {
             case "Mon":
                 date_day_view.setText("sun  " + today_date.day_of_week + "  tue");
                 break;
-            case "tue":
+            case "Tue":
                 date_day_view.setText("mon  " + today_date.day_of_week + "  wed");
                 break;
-            case "wed":
+            case "Wed":
                 date_day_view.setText("tue  " + today_date.day_of_week + "  thu");
                 break;
-            case "thu":
+            case "Thu":
                 date_day_view.setText("wed  " + today_date.day_of_week + "  fri");
                 break;
             case "Fri":
                 date_day_view.setText("thu  " + today_date.day_of_week + "  sat");
                 break;
-            case "sat":
+            case "Sat":
                 date_day_view.setText("fri  " + today_date.day_of_week + "  sun");
                 break;
-            case "sun":
+            case "Sun":
                 date_day_view.setText("sat  " + today_date.day_of_week + "  mon");
                 break;
         }
@@ -100,8 +115,29 @@ class jokerView extends WatchUi.WatchFace {
         var hour_view = View.findDrawableById("TimeHour") as Text;
         var min_view = View.findDrawableById("TimeMin") as Text;
 
-        hour_view.setText(Lang.format("$1$", [clockTime.hour.format("%02d")]));
+        hour_view.setText(Lang.format("$1$:", [clockTime.hour.format("%02d")]));
         min_view.setText(Lang.format("$1$", [clockTime.min.format("%02d")]));
     }
 
+    function batteryBar (dc as Dc) {
+        battery = System.getSystemStats().battery;
+        var batteryDay;
+        var battery_view = View.findDrawableById("BatteryInDays") as Text;
+        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
+        if (battery > 50) {
+            dc.fillRectangle(152, 104, 10, 13);
+            dc.fillRectangle(152, 120, 10, 5);
+            dc.fillRectangle(152, 128, 10, 5);
+        }else if (battery <= 50 && battery > 25 ) {
+            dc.fillRectangle(152, 120, 10, 5);
+            dc.fillRectangle(152, 128, 10, 5);
+        }else if (battery <= 25 && battery > 5) {
+            batteryDay = System.getSystemStats().batteryInDays;
+            battery_view.setText(Lang.format("$1$", [batteryDay.format("%d")]));
+            dc.fillRectangle(152, 128, 10, 5);
+        }else {
+            batteryDay = System.getSystemStats().batteryInDays;
+            battery_view.setText(Lang.format("$1$", [batteryDay.format("%d")]));
+        }
+    }
 }

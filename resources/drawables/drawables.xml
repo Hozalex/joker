@@ -4,5 +4,11 @@
     </drawables>
     <drawable-list id="MainBackground" background="Gfx.COLOR_TRANSPARENT">
         <bitmap id="Background" x="0" y="0" filename="./test.png" />
+        <!-- battery rectangle -->
+        <!-- <shape type="rectangle" x="155" y="104" width="10" height="30" corner_radius="5" color="Gfx.COLOR_BLACK" /> -->
+    </drawable-list>
+    <drawable-list id="Battery" background="Gfx.COLOR_TRANSPARENT">
+        <!-- battery rectangle -->
+        <shape type="rectangle" x="155" y="104" width="10" height="30" corner_radius="5" color="Gfx.COLOR_BLACK" />
     </drawable-list>
 </resources>
